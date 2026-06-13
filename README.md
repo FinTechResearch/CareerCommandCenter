@@ -12,3 +12,5 @@ AI-powered desktop career toolkit.
 - Application Tracking
 
 ## Download
+
+Download Link = https://adityamadhok.gumroad.com/l/Career-Command-Center
