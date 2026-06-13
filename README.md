@@ -1,2 +1,14 @@
-# CareerCommandCenter
-AI-powered career toolkit.  ✔ Application Tracker ✔ Resume Match ✔ AI Job Analyzer ✔ Cover Letter Generator ✔ Interview Preparation ✔ Job Search ✔ Career Statistics  Requires free Groq API key.
+# Career Command Center
+
+AI-powered desktop career toolkit.
+
+## Features
+
+- Resume Matching
+- AI Job Analysis
+- Interview Preparation
+- Cover Letter Generation
+- Job Search
+- Application Tracking
+
+## Download
