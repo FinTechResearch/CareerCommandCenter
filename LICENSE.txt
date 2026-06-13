@@ -1,0 +1,19 @@
+Copyright (c) 2026 Aditya
+
+All Rights Reserved.
+
+This software is licensed, not sold.
+
+You may:
+
+- Install and use on personal computers.
+
+You may NOT:
+
+- Reverse engineer.
+- Redistribute.
+- Resell.
+- Share binaries.
+- Modify and distribute.
+
+Commercial redistribution requires written permission.
