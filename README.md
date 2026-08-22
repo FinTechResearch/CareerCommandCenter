@@ -13,7 +13,7 @@ AI-powered desktop career toolkit.
 
 ## Download
 
-Download Link = https://adityamadhok.gumroad.com/l/Career-Command-Center
+Download Link = https://github.com/FinTechResearch/CareerCommandCenter/releases/tag/v2.0.0
 
 dev.to artical of this project = https://dev.to/adityamadhok/i-built-career-command-center-an-ai-powered-job-search-dashboard-with-python-textual-496d
 
@@ -270,3 +270,71 @@ If you'd like to see future updates, feel free to follow me here on Dev.to and s
 
 Happy coding and good luck with your job search!
 
+=====================================================================================================
+
+============================================================
+ CAREER COMMAND CENTER - RELEASE NOTES
+ Version 2.1 (Binaries Release and Source Code Release)
+ Date: August 22, 2026
+============================================================
+
+WHAT'S NEW IN THIS RELEASE
+--------------------------
+
+* NOW OPEN SOURCE!
+  Career Command Center is now fully open source.
+  The complete source code is included with this release,
+  so you can inspect, modify, and contribute to the project.
+  Build it yourself from source on Linux or Windows.
+
+* UPGRADED UI WITH GIF ANIMATIONS
+  The interface has been refreshed with smooth GIF
+  animations running right inside your terminal:
+    - Animated radar banner on the dashboard
+    - Animated rocket on the About screen
+  The app feels more alive than ever while staying fast
+  and keyboard-friendly.
+
+* BUG FIXES
+  Several bugs have been identified and corrected across
+  the app for a smoother, more stable experience.
+
+ABOUT THE BINARIES
+------------------
+
+Ready-to-install packages are included in this release:
+
+  - Linux:   career-command-center_2.0_amd64.deb
+             Install with: sudo apt install ./<file>.deb
+             Launch with:  career-command-center
+
+  - Windows: CareerCommandCenter.exe
+             Portable exe or full setup installer
+             (Start-menu shortcut + uninstaller included)
+
+Your data (jobs.db, .env) is kept safely even after
+uninstalling or upgrading.
+
+GETTING STARTED
+---------------
+
+1. Install the package for your platform (see above).
+2. For AI features, grab a free Groq API key at
+   https://console.groq.com/keys and add it under
+   the API Settings screen inside the app.
+3. Non-AI features (Application Tracker, Statistics)
+   work without any API key.
+
+FEEDBACK & CONTRIBUTING
+-----------------------
+
+Since the project is now open source, issues reports,
+feature ideas, and pull requests are all welcome!
+
+------------------------------------------------------------
+ Career Command Center
+ Track * Apply * Interview * Get Hired
+ Powered by Groq | Jobs from RemoteOK
+============================================================
+
+Donations accepted for future improvements via Ko-Fi (https://ko-fi.com/adityamadhok) or GitHub Sponsorships
