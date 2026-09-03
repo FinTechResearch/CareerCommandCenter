@@ -90,7 +90,7 @@ npm start
 ## 📁 Project Structure
 
 ```
-my-site/
+career-command-center-landing-site/
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx              # Fonts, metadata, dark theme
