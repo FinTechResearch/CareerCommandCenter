@@ -1,340 +1,146 @@
-# Career Command Center
+<div align="center">
 
-AI-powered desktop career toolkit.
+# 🚀 Career Command Center — Landing Site
 
-## Features
+**The official 3D landing page for [Career Command Center](https://github.com/FinTechResearch/CareerCommandCenter)** — an AI-powered desktop career toolkit.
 
-- Resume Matching
-- AI Job Analysis
-- Interview Preparation
-- Cover Letter Generation
-- Job Search
-- Application Tracking
+Track • Apply • Interview • Get Hired
 
-## Download
+[Product Repo](https://github.com/FinTechResearch/CareerCommandCenter) · [Download v2.1](https://github.com/FinTechResearch/CareerCommandCenter/releases/tag/v2.0.0) · [Gumroad](https://adityamadhok.gumroad.com/l/Career-Command-Center) · [dev.to write-up](https://dev.to/adityamadhok/i-built-career-command-center-an-ai-powered-job-search-dashboard-with-python-textual-496d)
 
-Download Link = https://github.com/FinTechResearch/CareerCommandCenter/releases/tag/v2.0.0
-
-dev.to artical of this project = https://dev.to/adityamadhok/i-built-career-command-center-an-ai-powered-job-search-dashboard-with-python-textual-496d
-
--------------------------------------------------------------------------------------------------------------------------------------------------------
-
-If you've ever managed dozens of job applications across multiple websites, you know how chaotic the process becomes.
-
-Spreadsheets, bookmarked job listings, resumes tailored for different roles, interview notes, cover letters, and application tracking quickly become overwhelming.
-
-So I decided to build something for myself.
-
-Introducing **Career Command Center** — an AI-powered terminal dashboard built with Python and Textual that helps job seekers organize and accelerate their job search.
+</div>
 
 ---
 
-## Why I Built It
+## ✨ About
 
-I wanted a single application where I could:
+Career Command Center is an AI-powered terminal dashboard (Python + Textual) that
+replaces job-search chaos — spreadsheets, bookmarks, sticky notes — with one
+command center:
 
-* Track applications
-* Search jobs
-* Generate cover letters
-* Match resumes against jobs
-* Prepare for interviews
-* Analyze job descriptions with AI
-* View application statistics
+- ✔ Application Tracker (SQLite, offline)
+- ✔ Resume Match with ATS-style feedback
+- ✔ AI Job Analyzer
+- ✔ Cover Letter Generator
+- ✔ Interview Preparation
+- ✔ Remote Job Search (RemoteOK)
+- ✔ Career Statistics dashboard
 
-without constantly switching between websites and tools.
+As of **v2.1** the product is fully **open source (GPL-3.0)** with animated UI,
+Windows EXE and Linux `.deb` packages, and free AI via a Groq API key.
 
-The result is a desktop application that feels like a futuristic command center for career management.
+This repository contains the product's **marketing/landing site**: a dark,
+terminal-inspired, WebGL-powered single page built with the modern Next.js
+creative stack — a 3D "radar core" hero scene, buttery smooth scrolling, and
+scroll-driven motion.
 
----
+## 🧰 Tech Stack
 
-## Tech Stack
+| Layer | Tools |
+| --- | --- |
+| Framework | [Next.js 16](https://nextjs.org) (App Router), React 19, TypeScript |
+| 3D / WebGL | [three.js](https://threejs.org), [@react-three/fiber](https://docs.pmnd.rs), [@react-three/drei](https://drei.docs.pmnd.rs) |
+| Motion | [GSAP](https://gsap.com) + ScrollTrigger, [Framer Motion](https://www.framer.com/motion/), [Lenis](https://lenis.darkroom.engineering) smooth scroll |
+| UI | [Tailwind CSS v4](https://tailwindcss.com), [shadcn/ui](https://ui.shadcn.com), [lucide-react](https://lucide.dev), class-variance-authority, clsx, tailwind-merge |
+| Forms | react-hook-form + zod (custom zod resolver, no extra deps) |
+## 🚦 Getting Started
 
+> Prerequisites: **Node.js 18.18+ (20+ recommended)** and npm.
 
-### Frontend
+### 1. Tooling (optional, for AI-assisted dev & testing)
 
-* Python
-* Textual (Terminal UI Framework)
-* Rich
+```bash
+npm install -g @anthropic-ai/claude-code
+npm install -g @upstash/context7-mcp
+npm install -g @playwright/mcp
+npm install -g @modelcontextprotocol/server-filesystem
+npx playwright install
+```
 
-### Backend
+### 2. Create the project (how this site was scaffolded)
 
-* SQLite
-* Groq AI API
+```bash
+npx create-next-app@latest my-site
+cd my-site
+npx shadcn@latest init
+npm install framer-motion gsap lenis
+npm install three
+npm install @react-three/fiber
+npm install @react-three/drei
+npm install lucide-react clsx tailwind-merge class-variance-authority
+npm install react-hook-form zod
+```
 
-### Job Sources
+Or clone this repo and skip straight to step 3 — everything is already wired.
 
-* RemoteOK
-* Browser-integrated Cutshort search
-* Extensible multi-source architecture
+### 3. Run it
 
-### Packaging
+```bash
+npm install
+npm run dev      # http://localhost:3000
+```
 
-* PyInstaller
-* Windows Executable
-* Linux Binary
+### Production build
 
----
+```bash
+npm run build
+npm start
+```
 
-## Features
+## 📁 Project Structure
 
+```
+my-site/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx              # Fonts, metadata, dark theme
+│   │   ├── page.tsx                # Page assembly (all sections)
+│   │   └── globals.css             # Tailwind v4 theme + custom keyframes
+│   ├── components/
+│   │   ├── providers/
+│   │   │   └── smooth-scroll.tsx   # Lenis + GSAP ticker integration
+│   │   ├── three/
+│   │   │   ├── command-scene.tsx   # R3F hero scene (radar core, rings, grid)
+│   │   │   └── scene-wrapper.tsx   # Dynamic import (client-only WebGL)
+│   │   ├── site/                   # navbar, hero, marquee, features,
+│   │   │   #                       # how-it-works, stats-band, stack-section,
+│   │   │   #                       # faq, feature-form, cta, footer, reveal
+│   │   └── ui/                     # shadcn/ui primitives
+│   └── lib/utils.ts                # cn() helper
+└── components.json                 # shadcn config
+```
 
-## Application Tracking
+## 🎨 Design Notes
 
-Keep track of:
+- **Palette:** near-black green `oklch(0.14 0.012 165)` background, emerald
+  `oklch(0.83 0.18 156)` primary — terminal green on a command-center dark theme.
+- **3D hero:** a distorted icosahedron "radar core" with a wireframe shell,
+  three orbiting rings, a rotating radar sweep arm, sparkles, stars and an
+  infinite grid floor — all with mouse-parallax damping.
+- **Motion:** Lenis drives smooth scroll, GSAP ScrollTrigger reveals sections
+  once as they enter the viewport, Framer Motion handles hero stagger, hover
+  lifts and animated counters.
+- The feature-request form currently simulates submission — wire
+  `onSubmit` in `src/components/site/feature-form.tsx` to your API route.
 
-* Applied jobs
-* Interviews
-* Offers
-* Rejections
+## ☁️ Deploy
 
-with a built-in SQLite database.
+One-click on [Vercel](https://vercel.com/new): import the repo and deploy with
+defaults (`next build`). Also works on Netlify, Cloudflare Pages or any Node host.
 
----
+## 🤝 Supporting the Product
 
-## AI Job Analyzer
+- 🛒 Purchase builds: [Gumroad](https://adityamadhok.gumroad.com/l/Career-Command-Center)
+- ☕ Donate: [Ko-fi](https://ko-fi.com/adityamadhok) or GitHub Sponsorships
+- 🐛 Report issues / PRs on the [product repo](https://github.com/FinTechResearch/CareerCommandCenter)
 
-Paste any job description and receive:
+## 📄 License
 
-* Skills required
-* Experience level
-* Responsibilities
-* Suggested interview topics
-* Resume improvement recommendations
-
-Powered by Groq AI.
-
----
-
-## Resume Match
-
-Upload your resume and compare it against a job description.
-
-Get:
-
-* Match score
-* Missing skills
-* Resume gaps
-* Suggested improvements
-* ATS-style feedback
-
----
-
-## AI Cover Letter Generator
-
-Generate customized cover letters in seconds.
-
-No more rewriting the same template over and over.
-
----
-
-## Interview Preparation
-
-Generate:
-
-* Technical questions
-* Behavioral questions
-* Follow-up questions
-* Preparation tips
-
-based on a target role.
-
----
-
-## Real Job Search
-
-Search remote opportunities directly from the application.
-
-Current integrations include:
-
-* RemoteOK
-
----
-
-## API Settings
-
-Users can connect their own Groq API key.
-
-The application stores the key locally so users remain in control of their usage.
-
----
-
-## Dashboard Overview
-
-The dashboard provides:
-
-* Total Applications
-* Interviews
-* Offers
-* Rejections
-
-along with quick navigation to all tools.
+The Career Command Center product is licensed under **GPL-3.0**; this landing
+site follows the same license to stay consistent with the product ecosystem.
 
 ---
 
-## Packaging Challenges
-
-One interesting challenge was packaging a Textual application into standalone executables.
-
-Textual applications are terminal-based, so Windows builds require a console-enabled executable rather than a GUI-only executable.
-
-After several iterations with PyInstaller, I successfully packaged:
-
-* Windows EXE
-* Linux Binary
-
-for distribution.
-
----
-
-## Screenshots
-
-
-### Dashboard
-
-
-![Dashboard](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/njv3a676e8cjtddic7py.png)
-
-### AI Job Analyzer
-
-
-![AI Job Analyzer](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n13z6v3bqvch196u4rl9.png)
-
-### Resume Match
-
-
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/71d5h769zy717p8ivmp6.png)
-
-### Interview Preparation
-
-
-![Interview Preparation](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n10pndo54ac5zynlr40j.png)
-
-### Job Search
-
-
-![Job Search](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b3sqj7wt9ew53nns5u38.png)
-
-### API Settings
-
-
-![API Settings](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/svheaterusfs8pc0tsfk.png)
-
----
-
-## What I Learned
-
-Building this project taught me a lot about:
-
-* Textual application development
-* SQLite integration
-* AI-powered workflows
-* Desktop packaging
-* Cross-platform deployment
-* Product design for job seekers
-
----
-
-## Future Roadmap
-
-Planned improvements include:
-
-* Resume optimization
-* ATS scoring
-* PDF report exports
-* Multi-source job aggregation
-* Advanced analytics dashboard
-
----
-
-## Availability
-
-Career Command Center is available as a downloadable desktop application.
-
-If you'd like to support the project and get access to future updates, you can purchase it here:
-
-Windows and Linux versions available:
-
-**👉 https://adityamadhok.gumroad.com/l/Career-Command-Center**
-
----
-
-## Final Thoughts
-
-This project started as a personal productivity tool and evolved into a complete AI-powered career toolkit.
-
-If you're learning Python, exploring Textual, or interested in building AI-powered desktop applications, I highly recommend experimenting with tools like these.
-
-Thanks for reading.
-
-If you'd like to see future updates, feel free to follow me here on Dev.to and share your feedback.
-
-Happy coding and good luck with your job search!
-
-=====================================================================================================
-
-============================================================
- CAREER COMMAND CENTER - RELEASE NOTES
- Version 2.1 (Binaries Release and Source Code Release)
- Date: August 22, 2026
-============================================================
-
-WHAT'S NEW IN THIS RELEASE
---------------------------
-
-* NOW OPEN SOURCE!
-  Career Command Center is now fully open source.
-  The complete source code is included with this release,
-  so you can inspect, modify, and contribute to the project.
-  Build it yourself from source on Linux or Windows.
-
-* UPGRADED UI WITH GIF ANIMATIONS
-  The interface has been refreshed with smooth GIF
-  animations running right inside your terminal:
-    - Animated radar banner on the dashboard
-    - Animated rocket on the About screen
-  The app feels more alive than ever while staying fast
-  and keyboard-friendly.
-
-* BUG FIXES
-  Several bugs have been identified and corrected across
-  the app for a smoother, more stable experience.
-
-ABOUT THE BINARIES
-------------------
-
-Ready-to-install packages are included in this release:
-
-  - Linux:   career-command-center_2.0_amd64.deb
-             Install with: sudo apt install ./<file>.deb
-             Launch with:  career-command-center
-
-  - Windows: CareerCommandCenter.exe
-             Portable exe or full setup installer
-             (Start-menu shortcut + uninstaller included)
-
-Your data (jobs.db, .env) is kept safely even after
-uninstalling or upgrading.
-
-GETTING STARTED
----------------
-
-1. Install the package for your platform (see above).
-2. For AI features, grab a free Groq API key at
-   https://console.groq.com/keys and add it under
-   the API Settings screen inside the app.
-3. Non-AI features (Application Tracker, Statistics)
-   work without any API key.
-
-FEEDBACK & CONTRIBUTING
------------------------
-
-Since the project is now open source, issues reports,
-feature ideas, and pull requests are all welcome!
-
-------------------------------------------------------------
- Career Command Center
- Track * Apply * Interview * Get Hired
- Powered by Groq | Jobs from RemoteOK
-============================================================
-
-Donations accepted for future improvements via Ko-Fi (https://ko-fi.com/adityamadhok) or GitHub Sponsorships
+<div align="center">
+<sub>Powered by <a href="https://groq.com">Groq</a> · Jobs from <a href="https://remoteok.com">RemoteOK</a></sub>
+</div>
